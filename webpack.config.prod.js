@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const base = require('./webpack.config.base.js');
 
 module.exports = {
@@ -6,6 +7,7 @@ module.exports = {
   mode: "production", // "production" | "development" | "none"
   module: {
     rules: [
+      ...base.module.rules,
       {
         test: /\.css$/i,
         use: [{
@@ -27,6 +29,7 @@ module.exports = {
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].[contenthash].css",
       ignoreOrder: false,
-    }
-  )],
+    }),
+    new OptimizeCSSAssetsPlugin({})
+],
 };

@@ -1,3 +1,3 @@
 import './x.css'
-import './y.css'
+import './y.less'
 export default "x";
