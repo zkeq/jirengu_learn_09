@@ -1,21 +1,21 @@
-var path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
-  plugins: [new HtmlWebpackPlugin(
-    {
-      title: 'Webpack Demo',
-      template: 'src/assets/index.html'
-    }
-  )],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Webpack Demo",
+      template: "src/assets/index.html",
+    }),
+  ],
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "[name].[contenthash].js",
     clean: true,
   },
   optimization: {
-    runtimeChunk: 'single',
+    runtimeChunk: "single",
   },
   module: {
     rules: [
@@ -41,19 +41,15 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        use: [
-          "style-loader",
-          "css-loader",
-          "stylus-loader"
-        ],
+        use: ["style-loader", "css-loader", "stylus-loader"],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[path][name].[contenthash].[ext]',
+              name: "[path][name].[contenthash].[ext]",
             },
           },
         ],
