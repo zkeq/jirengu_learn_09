@@ -29,13 +29,29 @@ module.exports = {
           "sass-loader",
         ],
       },
-        {
+      {
         test: /\.less$/i,
         use: [
           // compiles Less to CSS
           "style-loader",
           "css-loader",
           "less-loader",
+        ],
+      },
+      {
+        test: /\.styl$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "stylus-loader"
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
         ],
       },
     ],
