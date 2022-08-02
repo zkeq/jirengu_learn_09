@@ -11,7 +11,8 @@ module.exports = {
   )],
   output: {
     path: path.resolve(__dirname + "/dist"),
-    filename: "[name].[contenthash].js"
+    filename: "[name].[contenthash].js",
+    clean: true,
   },
   optimization: {
     runtimeChunk: 'single',
@@ -52,7 +53,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[path][name].[ext]',
+              name: '[path][name].[contenthash].[ext]',
             },
           },
         ],
